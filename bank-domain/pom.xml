@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>cn.bluesking</groupId>
-            <artifactId>types</artifactId>
+            <artifactId>bank-types</artifactId>
             <version>${ddd.bank.version}</version>
         </dependency>
     </dependencies>

@@ -30,8 +30,4 @@
         <ddd.bank.version>1.0-SNAPSHOT</ddd.bank.version>
     </properties>
 
-    <build>
-
-    </build>
-
 </project>
