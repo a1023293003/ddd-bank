@@ -19,7 +19,7 @@ import java.util.Objects;
  */
 @Value
 @Getter
-public class ExchangeRate {
+public final class ExchangeRate {
 
     private final BigDecimal rate;
     private final Currency source;

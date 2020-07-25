@@ -14,7 +14,7 @@ import java.util.Objects;
  */
 @Value
 @Getter
-public class AccountNumber {
+public final class AccountNumber {
 
     private final String number;
 

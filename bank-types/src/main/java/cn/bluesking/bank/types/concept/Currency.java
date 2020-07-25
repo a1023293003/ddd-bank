@@ -14,7 +14,7 @@ import java.util.Objects;
  */
 @Value
 @Getter
-public class Currency {
+public final class Currency {
 
     private final String value;
 

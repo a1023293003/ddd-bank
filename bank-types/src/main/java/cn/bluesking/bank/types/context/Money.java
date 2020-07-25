@@ -17,7 +17,7 @@ import java.util.Objects;
  */
 @Value
 @Getter
-public class Money {
+public final class Money {
 
     private final BigDecimal amount;
     private final Currency currency;
