@@ -1,11 +1,6 @@
 package cn.bluesking.bank.types.concept;
 
-import cn.bluesking.bank.types.exception.ValidationException;
-import lombok.Getter;
 import lombok.ToString;
-import lombok.Value;
-
-import java.util.Objects;
 
 /**
  * 用户 ID。
