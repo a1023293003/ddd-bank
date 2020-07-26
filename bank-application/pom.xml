@@ -17,6 +17,11 @@
             <artifactId>bank-domain</artifactId>
             <version>${ddd.bank.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
 </project>
