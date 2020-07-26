@@ -2,8 +2,8 @@ package cn.bluesking.bank.types.behavior;
 
 import cn.bluesking.bank.types.concept.Currency;
 import cn.bluesking.bank.types.context.Money;
-import cn.bluesking.bank.types.exception.CurrencyNotMatchException;
-import cn.bluesking.bank.types.exception.ValidationException;
+import cn.bluesking.bank.exception.InvalidCurrencyException;
+import cn.bluesking.bank.exception.ValidationException;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Value;
@@ -43,7 +43,7 @@ public final class ExchangeRate {
 
     public Money exchangeTo(@NonNull Money sourceMoney) {
         if (!target.equals(sourceMoney.getCurrency())) {
-            throw new CurrencyNotMatchException("Source Money 货币种类和预期不符！[" + sourceMoney.toString() + "]");
+            throw new InvalidCurrencyException("Source Money 货币种类和预期不符！[" + sourceMoney.toString() + "]");
         }
         BigDecimal targetAmount = sourceMoney.getAmount().multiply(rate);
         return new Money(targetAmount, target);

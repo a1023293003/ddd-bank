@@ -1,6 +1,6 @@
 package cn.bluesking.bank.types.concept;
 
-import cn.bluesking.bank.types.exception.ValidationException;
+import cn.bluesking.bank.exception.ValidationException;
 import lombok.Getter;
 import lombok.Value;
 
