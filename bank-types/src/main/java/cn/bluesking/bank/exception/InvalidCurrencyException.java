@@ -1,4 +1,4 @@
-package cn.bluesking.bank.types.exception;
+package cn.bluesking.bank.exception;
 
 /**
  * 货币种类不匹配异常。
