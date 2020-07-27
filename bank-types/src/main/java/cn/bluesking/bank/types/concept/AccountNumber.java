@@ -27,7 +27,7 @@ public final class AccountNumber {
         if (Objects.isNull(number)) {
             throw new ValidationException("Account Number 不能为 null！");
         }
-        if (isNumeric(number)) {
+        if (!isNumeric(number)) {
             throw new ValidationException("Account Number 不合法！[" + number + "]");
         }
     }

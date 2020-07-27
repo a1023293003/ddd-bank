@@ -1,6 +1,6 @@
 package cn.bluesking.bank.application;
 
-import cn.bluesking.bank.application.types.Result;
+import cn.bluesking.bank.types.Result;
 
 import java.math.BigDecimal;
 

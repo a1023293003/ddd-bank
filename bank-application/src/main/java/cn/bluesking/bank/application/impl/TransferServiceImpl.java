@@ -1,7 +1,7 @@
 package cn.bluesking.bank.application.impl;
 
 import cn.bluesking.bank.application.TransferService;
-import cn.bluesking.bank.application.types.Result;
+import cn.bluesking.bank.types.Result;
 import cn.bluesking.bank.domain.entity.Account;
 import cn.bluesking.bank.domain.service.AccountTransferService;
 import cn.bluesking.bank.domain.types.AuditMessage;

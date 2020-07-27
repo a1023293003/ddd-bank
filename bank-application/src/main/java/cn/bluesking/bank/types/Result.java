@@ -1,4 +1,4 @@
-package cn.bluesking.bank.application.types;
+package cn.bluesking.bank.types;
 
 import lombok.Value;
 

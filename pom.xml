@@ -10,6 +10,7 @@
 
     <modules>
         <module>bank-application</module>
+        <module>bank-config</module>
         <module>bank-domain</module>
         <module>bank-infrastructure</module>
         <module>bank-start</module>

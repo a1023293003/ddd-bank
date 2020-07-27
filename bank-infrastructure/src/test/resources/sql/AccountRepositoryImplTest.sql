@@ -1,0 +1,2 @@
+insert into account(id, account_number, available_amount, currency, daily_limit_amount, user_id) values(1001, '1234567890', 100.0, 'CNY', '10000.0', 1001);
+insert into account(id, account_number, available_amount, currency, daily_limit_amount, user_id) values(1002, '1234567890', 110.0, 'CNY', '10000.0', 1002);
