@@ -43,7 +43,7 @@ public class AccountRepositoryImpl implements AccountRepository {
     public Account find(AccountNumber accountNumber) {
         return Optional.ofNullable(accountNumber)
                 .map(AccountNumber::getNumber)
-                .map(accountDAO::findByAccountNumber)
+                .map(accountDAO::findFirstByAccountNumber)
                 .map(accountBuilder::toAccount)
                 .orElse(null);
     }
@@ -52,7 +52,7 @@ public class AccountRepositoryImpl implements AccountRepository {
     public Account find(UserId userId) {
         return Optional.ofNullable(userId)
                 .map(UserId::getId)
-                .map(accountDAO::findByUserId)
+                .map(accountDAO::findFirstByUserId)
                 .map(accountBuilder::toAccount)
                 .orElse(null);
     }

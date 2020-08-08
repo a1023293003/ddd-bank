@@ -2,7 +2,6 @@ package cn.bluesking.bank.domain.service.impl;
 
 import cn.bluesking.bank.domain.entity.Account;
 import cn.bluesking.bank.domain.service.AccountTransferService;
-import cn.bluesking.bank.external.ExchangeRateService;
 import cn.bluesking.bank.types.behavior.ExchangeRate;
 import cn.bluesking.bank.types.context.Money;
 import lombok.NonNull;
@@ -14,12 +13,6 @@ import lombok.NonNull;
  * @date 2020/7/26
  */
 public class AccountTransferServiceImpl implements AccountTransferService {
-
-    private final ExchangeRateService exchangeRateService;
-
-    public AccountTransferServiceImpl(@NonNull ExchangeRateService exchangeRateService) {
-        this.exchangeRateService = exchangeRateService;
-    }
 
     @Override
     public void transfer(@NonNull Account sourceAccount,

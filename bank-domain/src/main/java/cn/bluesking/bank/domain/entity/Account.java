@@ -2,7 +2,6 @@ package cn.bluesking.bank.domain.entity;
 
 import cn.bluesking.bank.exception.DailyLimitExceededException;
 import cn.bluesking.bank.exception.InsufficientFundsException;
-import cn.bluesking.bank.exception.InvalidCurrencyException;
 import cn.bluesking.bank.types.concept.AccountId;
 import cn.bluesking.bank.types.concept.AccountNumber;
 import cn.bluesking.bank.types.concept.Currency;

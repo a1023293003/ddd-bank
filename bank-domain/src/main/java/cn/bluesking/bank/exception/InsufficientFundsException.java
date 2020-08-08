@@ -6,5 +6,6 @@ package cn.bluesking.bank.exception;
  * @author 随心
  * @date 2020/7/26
  */
+@SuppressWarnings("serial")
 public class InsufficientFundsException extends ValidationException {
 }

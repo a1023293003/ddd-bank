@@ -6,6 +6,7 @@ package cn.bluesking.bank.exception;
  * @author 随心
  * @date 2020/7/25
  */
+@SuppressWarnings("serial")
 public class ValidationException extends IllegalArgumentException {
 
     public ValidationException() {

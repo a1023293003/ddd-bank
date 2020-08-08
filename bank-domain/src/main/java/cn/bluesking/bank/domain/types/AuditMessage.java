@@ -1,5 +1,10 @@
 package cn.bluesking.bank.domain.types;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Objects;
+
 import cn.bluesking.bank.exception.ValidationException;
 import cn.bluesking.bank.types.concept.AccountNumber;
 import cn.bluesking.bank.types.concept.Currency;
@@ -7,12 +12,6 @@ import cn.bluesking.bank.types.concept.UserId;
 import cn.bluesking.bank.types.context.Money;
 import lombok.NonNull;
 import lombok.Value;
-
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.Objects;
 
 /**
  * @author 随心

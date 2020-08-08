@@ -1,5 +1,13 @@
 package cn.bluesking.bank.repository.impl;
 
+import java.math.BigDecimal;
+
+import org.junit.Assert;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import cn.bluesking.bank.BaseSpringBootTest;
 import cn.bluesking.bank.domain.entity.Account;
 import cn.bluesking.bank.repository.AccountRepository;
 import cn.bluesking.bank.types.concept.AccountId;
@@ -7,16 +15,6 @@ import cn.bluesking.bank.types.concept.AccountNumber;
 import cn.bluesking.bank.types.concept.Currency;
 import cn.bluesking.bank.types.concept.UserId;
 import cn.bluesking.bank.types.context.Money;
-import org.junit.Assert;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.jdbc.SqlConfig;
-
-import javax.sql.DataSource;
-import java.math.BigDecimal;
 
 /**
  * Junit Test For {@link cn.bluesking.bank.repository.AccountRepository}。
@@ -24,18 +22,15 @@ import java.math.BigDecimal;
  * @author 随心
  * @date 2020/7/26
  */
-@SpringBootTest
-@Sql("classpath:sql/AccountRepositoryImplTest.sql")
-class AccountRepositoryImplTest {
+class AccountRepositoryImplTest extends BaseSpringBootTest {
 
     @Autowired
     private AccountRepository accountRepository;
 
-    @Autowired
-    private DataSource dataSource;
-
     @Test
     @Order(1)
+//    @Sql("classpath:sql/AccountRepositoryImplTest.sql")
+//    @Sql(scripts = "classpath:sql/truncate.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     void findByAccountId() {
         for (long i = 1001; i <= 1002; i ++) {
             Account expectFound = accountRepository.find(new AccountId(i));
@@ -56,7 +51,7 @@ class AccountRepositoryImplTest {
     @Order(3)
     void findByUserId() {
         for (long i = 1001; i <= 1002; i ++) {
-            Account expectFound = accountRepository.find(new UserId(i + 1000));
+            Account expectFound = accountRepository.find(new UserId(i));
             Assert.assertNotNull(expectFound);
             Account expectNotFound = accountRepository.find(new UserId(i + 7));
             Assert.assertNull(expectNotFound);

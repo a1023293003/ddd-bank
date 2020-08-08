@@ -13,8 +13,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AccountDAO extends JpaRepository<AccountDO, Long> {
 
-    AccountDO findByAccountNumber(String accountNumber);
+    AccountDO findFirstByAccountNumber(String accountNumber);
 
-    AccountDO findByUserId(Long userId);
+    AccountDO findFirstByUserId(Long userId);
 
 }
