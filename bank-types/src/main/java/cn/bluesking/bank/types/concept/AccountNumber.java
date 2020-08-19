@@ -1,10 +1,9 @@
 package cn.bluesking.bank.types.concept;
 
-import cn.bluesking.bank.exception.ValidationException;
+import cn.bluesking.bank.util.StringUtils;
+import cn.bluesking.bank.util.ValidationUtils;
 import lombok.Getter;
 import lombok.Value;
-
-import java.util.Objects;
 
 /**
  * 账户数字编号对象。
@@ -24,26 +23,10 @@ public final class AccountNumber {
     }
 
     private void isValid(String number) {
-        if (Objects.isNull(number)) {
-            throw new ValidationException("Account Number 不能为 null！");
-        }
-        if (!isNumeric(number)) {
-            throw new ValidationException("Account Number 不合法！[" + number + "]");
-        }
+        ValidationUtils.assertNotNull(number, "Account Number 不能为 null！");
+        ValidationUtils.assertTrue(StringUtils.isNumeric(number), () -> "Account Number 不合法！[" + number + "]");
     }
 
-    private boolean isNumeric(String number) {
-        int length = number.length();
-        for (int i = 0; i < length; i ++) {
-            if (isNumeric(number.charAt(i))) {
-                return true;
-            }
-        }
-        return false;
-    }
 
-    private boolean isNumeric(char c) {
-        return c >= '0' && c <= '9';
-    }
 
 }

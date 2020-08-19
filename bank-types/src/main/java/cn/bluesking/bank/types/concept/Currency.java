@@ -1,10 +1,8 @@
 package cn.bluesking.bank.types.concept;
 
-import cn.bluesking.bank.exception.ValidationException;
+import cn.bluesking.bank.util.ValidationUtils;
 import lombok.Getter;
 import lombok.Value;
-
-import java.util.Objects;
 
 /**
  * 货币种类。
@@ -18,15 +16,13 @@ public final class Currency {
 
     private final String value;
 
-    public Currency(String value) {
-        iaValid(value);
-        this.value = value;
+    public Currency(String currency) {
+        iaValid(currency);
+        this.value = currency;
     }
 
-    private void iaValid(String value) {
-        if (Objects.isNull(value) || "".equals(value)) {
-            throw new ValidationException("货币种类不能为空！");
-        }
+    private void iaValid(String currency) {
+        ValidationUtils.assertNotEmpty(currency, "货币种类不能为空！");
     }
 
 }

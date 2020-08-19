@@ -1,14 +1,13 @@
 package cn.bluesking.bank.types.context;
 
+import java.math.BigDecimal;
+
 import cn.bluesking.bank.exception.InvalidCurrencyException;
 import cn.bluesking.bank.types.concept.Currency;
-import cn.bluesking.bank.exception.ValidationException;
+import cn.bluesking.bank.util.ValidationUtils;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Value;
-
-import java.math.BigDecimal;
-import java.util.Objects;
 
 /**
  * 钱、一般等价物、交易的媒介。
@@ -30,23 +29,23 @@ public final class Money {
     }
 
     private void isValid(BigDecimal amount) {
-        if (Objects.isNull(amount)) {
-            throw new ValidationException("Money Amount 不能为 null！");
-        }
+        ValidationUtils.assertNotNull(amount, "Money Amount 不能为 null！");
     }
 
-    public Money add(@NonNull Money increment) {
-        if (!this.getCurrency().equals(increment.getCurrency())) {
+    private void assertCurrentIsSame(Currency target) {
+        if (!this.getCurrency().equals(target)) {
             throw new InvalidCurrencyException();
         }
+    }
+    
+    public Money add(@NonNull Money increment) {
+        assertCurrentIsSame(increment.getCurrency());
         BigDecimal resultAmount = amount.add(increment.getAmount());
         return new Money(resultAmount, currency);
     }
 
     public Money subtract(@NonNull Money decrement) {
-        if (!this.getCurrency().equals(decrement.getCurrency())) {
-            throw new InvalidCurrencyException();
-        }
+        assertCurrentIsSame(decrement.getCurrency());
         BigDecimal resultAmount = amount.add(decrement.getAmount());
         return new Money(resultAmount, currency);
     }

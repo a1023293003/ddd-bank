@@ -16,7 +16,6 @@ import lombok.Data;
  * @date 2020/7/26
  */
 @Data
-public class Account {
 
     private AccountId id;
     private AccountNumber accountNumber;

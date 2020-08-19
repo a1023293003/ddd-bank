@@ -19,27 +19,33 @@ public class SqlScriptTestExecutionListener extends AbstractTestExecutionListene
         return 5001;
     }
 
+//    private String[] getScripts(Sql sql) {
+//        String[] scripts = sql.scripts();
+//        
+//        return null;
+//    }
+    
     @Override
     public void beforeTestClass(TestContext testContext) throws Exception {
-        LOGGER.debug("=========== before test class");
+        logger.debug("=========== before test class");
         super.beforeTestClass(testContext);
     }
 
     @Override
     public void afterTestClass(TestContext testContext) throws Exception {
-        LOGGER.debug("=========== after test class");
+        logger.debug("=========== after test class");
         super.afterTestClass(testContext);
     }
 
     @Override
     public void beforeTestMethod(TestContext testContext) throws Exception {
-        LOGGER.debug("---------- before test method");
+        logger.debug("---------- before test method");
         super.beforeTestMethod(testContext);
     }
 
     @Override
     public void afterTestMethod(TestContext testContext) throws Exception {
-        LOGGER.debug("---------- after test method");
+        logger.debug("---------- after test method");
         super.afterTestMethod(testContext);
     }
 

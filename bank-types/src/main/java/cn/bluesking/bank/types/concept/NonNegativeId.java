@@ -1,11 +1,9 @@
 package cn.bluesking.bank.types.concept;
 
-import cn.bluesking.bank.exception.ValidationException;
+import cn.bluesking.bank.util.ValidationUtils;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
-
-import java.util.Objects;
 
 /**
  * ID、Long 类型、一种不为 null 且不为负数的标识符。
@@ -29,12 +27,8 @@ public abstract class NonNegativeId {
 
     protected void isValid(Long id) {
         String idName = getIdName();
-        if (Objects.isNull(id)) {
-            throw new ValidationException(idName + " 不能为 null！");
-        }
-        if (id < 0) {
-            throw new ValidationException(idName + " 不能为负数！[" + id + "]");
-        }
+        ValidationUtils.assertNotNull(id, () -> idName + " 不能为 null！");
+        ValidationUtils.assertTrue(id >= 0, () -> idName + " 不能为负数！[" + id + "]");
     }
 
 }

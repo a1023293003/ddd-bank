@@ -1,15 +1,14 @@
 package cn.bluesking.bank.types.behavior;
 
+import java.math.BigDecimal;
+
+import cn.bluesking.bank.exception.InvalidCurrencyException;
 import cn.bluesking.bank.types.concept.Currency;
 import cn.bluesking.bank.types.context.Money;
-import cn.bluesking.bank.exception.InvalidCurrencyException;
-import cn.bluesking.bank.exception.ValidationException;
+import cn.bluesking.bank.util.ValidationUtils;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Value;
-
-import java.math.BigDecimal;
-import java.util.Objects;
 
 /**
  * 汇率。
@@ -33,12 +32,8 @@ public final class ExchangeRate {
     }
 
     private void isValid(BigDecimal rate) {
-        if (Objects.isNull(rate)) {
-            throw new ValidationException("汇率值不能为空！");
-        }
-        if (rate.signum() < 0) {
-            throw new ValidationException("汇率值不能是负数！[" + rate.toString() + "]");
-        }
+        ValidationUtils.assertNotNull(rate, "汇率值不能为空！");
+        ValidationUtils.assertTrue(rate.signum() >= 0, () -> "汇率值不能是负数！[" + rate.toString() + "]");
     }
 
     public Money exchangeTo(@NonNull Money sourceMoney) {
